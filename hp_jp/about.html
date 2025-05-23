@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>京都茶乃蔵について</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="about-page">
+
+  <!-- ヘッダー読み込み -->
+  <div id="headerContainer"></div>
+  
+  <main>
+    <section class="content-section">
+      <h2>京都茶乃蔵について</h2>
+      <br>
+      <br>
+          <!-- 1つ目のブロック -->
+          <div class="text-image-box">
+            <div class="text-content">
+              <h3>蓄積された「茶業の知恵」</h3>
+              <p>
+                歴史と伝統だけではなく、蓄積された「茶業の知恵」と「歴史があることの優位性」を生かした商売が展開できることが新興企業にはマネのできない知恵＝強みといえます。
+                また2021年から社名を「京都茶の蔵」へと変更し時代とともに変化するご要望に対して、これからも常にお客様の視点に立ち、より良いサービスが提供できるよう努めて参ります。
+              </p>
+            </div>
+            <div class="image-content">
+              <img src="images/about01.jpg" alt="茶畑の写真">
+            </div>
+          </div>
+      
+          <!-- 2つ目のブロック -->
+          <div class="text-image-box">
+            <div class="text-content">
+              <h3>お茶づくりに対する伝統の技術のノウハウ</h3>
+              <p>
+                伝統のブレンド技術（秘伝のバランスで形状・滋味ともすぐれたお茶に仕上げる技術）と、契約問屋との信頼関係による優良茶葉の仕入により、「美味しいお茶を提供するお茶屋」という評価をいただいています。
+              </p>
+            </div>
+            <div class="image-content">
+              <img src="images/about02.jpg" alt="茶畑の写真">
+            </div>
+          </div>
+      
+          <!-- 3つ目 -->
+          <div class="text-image-box">
+            <div class="text-content">
+            <h3>商品開発における「伝統と革新」</h3>
+            <p>
+              商品開発においては過去から「伝統と革新」というコンセプトで、新感覚かつ生活に根ざした商品開発をすすめてきました。
+              商品パッケージも「京都らしい」和のパッケージづくりを得意としており、落ち着いた和モダンなデザインは評価を得ております。
+              商品デザインにおいては、自社デザイナー作成の企画提案をスピーディに作成できる強みがあります。
+              また、商品づくりにおいては机上の理論でコンセプトを作り上げるのではなく、お客様からの要望や意見等をくみ取り、お茶の生産者とのふれあいの中から、お客様指向の商品づくりを心がけています。
+            </p>
+        </div>
+        <div class="image-content">
+          <img src="images/about03.jpg" alt="茶畑の写真">
+        </div>
+      </div>
+      
+          <!-- 4つ目（画像なし、テキストのみ） -->
+          <div class="text-content">
+            <h3>「京都ブランド」</h3>
+            <p>
+              「京都ブランド」を生かして商売ができることは大きなポイントです。
+              主力商品もお茶業界におけるブランド産地「宇治茶」ブランドを生かして商品づくりができるため、
+              特にギフトなどで他の産地よりネームバリュー・ブランド上の優位性を持っています。
+            </p>
+          </div>
+      
+        </section>
+      </main>
+
+      <section class="content-section">
+        <div class="three-links-container">
+           <a href="https://www.instagram.com/kyoto_chanokura/" target="_blank" class="link-item">
+               <img src="images/sns_instagram.jpg" alt="Instagram" class="link-image">
+               </a>
+           <a href="https://x.com/kyoto_chanokura" target="_blank" class="link-item">
+               <img src="images/sns_xbana.png" alt="エックス" class="link-image">
+               </a>
+           <a href="https://lin.ee/DvsLitz" target="_blank" class="link-item">
+               <img src="images/sns_line.gif" alt="ライン" class="link-image">
+               </a>
+       </div>
+   </section>
+      
+    <!-- フッターを読み込む場所に設置 -->
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // ヘッダー読み込み
+        fetch('header.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('headerContainer').innerHTML = data;
+          })
+          .catch(error => {
+            console.error('ヘッダーの読み込みに失敗しました:', error);
+          });
+      
+        // フッター読み込み
+        fetch('footer.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+          })
+          .catch(error => {
+            console.error('フッターの読み込みに失敗しました:', error);
+          });
+      });
+      </script>
+  
+</body>
+</html>

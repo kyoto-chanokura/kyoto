@@ -1,0 +1,649 @@
+/* 基本的なリセットとフォント設定 */
+body, h1, h2, p, ul, li, figure { /* figureもリセットに追加 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    /* 全体の基本フォントをNoto Serif JPに */
+    font-family: 'Noto Serif JP', serif;
+    background-color: #ffffff; /* ボディーの背景色 */
+    color: #977005; /* abautの文字 */
+    line-height: 1.7; /* 行間を少し広げて読みやすく */
+    font-weight: 400; /* 標準の文字の太さ */
+    /*padding-top: 160px;  /* JavaScriptで調整するためコメントアウト */
+}
+
+a {
+    color: #977005; /* 項目タイトル落ち着いたゴールド系 */
+    text-decoration: none;
+    font-weight: 400; /* 項目のフォントの太さ */
+}
+
+a:hover {
+    /* color: #d4af37; */ /* ホバーで色変え */
+    color:  #005f30;
+}
+
+main {
+  /* padding-top: 60px;  ヘッダーの高さに合わせて調整 */
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: auto; /* 高さが変わる場合に備えて */
+  }
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white; /* ヘッダー背景色が透明でなければ必要 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.0); /* 任意の影効果 */
+  border-bottom: 1px solid #977005;
+}
+
+#main-image {
+    display: block;
+    margin: 30px auto 0;
+  }
+  
+  .sr-only {
+    position: absolute;
+    left: -9999px;
+  }
+  
+.header-inner {
+    max-width: 1200px; /* ヘッダー内容の最大幅 */
+    margin: 0 auto;   /* 中央揃え */
+    padding: 15px 40px; /* 上下のpaddingを少し調整 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 { /* ロゴがテキストの場合 */
+    font-size: 1.6em; /* サイズ調整 */
+    color: #000000;
+    font-weight: 700; /* やや太字 */
+    line-height: 1.2; /* ロゴ周りの行間調整 */
+}
+/* ロゴが画像の場合は .logo img { ... } でスタイル指定 */
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 30px; /* ナビ項目間のスペースを少し広げる */
+}
+
+header nav ul li a {
+    font-size: 0.95em; /* 少し小さめにして上品に */
+    color: #f7fffa; /* 文字色を少し柔らかく */
+    text-decoration: none; /* 下線なし */
+    transition: color 0.3s ease; /* ホバー時の色変化を滑らかに */
+    font-family: 'Noto Sans JP', sans-serif; /* ナビはゴシックにする場合 */
+    font-weight: 500;
+}
+
+header nav ul li a:hover {
+    color: #c0a062; /* ホバー時にゴールド系に */
+    text-decoration: none; /* ホバー時も下線なし */
+}
+
+header nav ul { /* 親要素である ul を選択 */
+  display: flex; /* ← これで li が横並びになる */
+  list-style: none; /* リストの点を消す (横並びとは直接関係ないが見た目のため) */
+  padding: 0; /* ブラウザ標準のulのpaddingを消す (見た目のため) */
+}
+
+header nav ul li { /* 子要素 li へのスタイル */
+  margin-left: 30px; /* ← 各項目の左側に余白を設けて間隔を調整 */
+}
+
+/* 最初の項目には左側の余白は不要なので、以下を追加しても良い */
+header nav ul li:first-child {
+  margin-left: 0;
+}
+
+/* "my-horizontal-list" というクラス名がついた ul 要素に対して */
+.my-horizontal-list {
+  display: flex;         /* li を横に並べるための最も重要な指定 */
+
+  /* 以下は見た目を整えるための一般的な指定 (任意) */
+  list-style: none;    /* リストの先頭の点 (・) を消す */
+  padding: 0;          /* ulが持つデフォルトの左側の余白を消す */
+  margin: 0;           /* ulが持つデフォルトの上下の余白を消す */
+  gap: 1em;            /* 項目と項目の間の隙間を空ける (例: 1文字分のスペース) */
+                       /* gapを使わない場合は、liに margin-left や margin-right を指定します */
+   justify-content: space-evenly; /* ← これで中央に均等配置 (推奨) */
+                      }
+
+/* 必要であれば、li 自体のスタイルも指定できます */
+.my-horizontal-list li {
+background-color: #ffffff;
+  /* border: 1px solid #ccc; */
+  /* padding: 5px 10px; */
+}
+
+header div {
+  max-width: 850px; /* 項目タイトル間の間隔 */
+  margin: 0 auto;
+}
+
+/* メインコンテンツ */
+main {
+    /* main自体のpaddingは不要 */
+    padding: 0%;
+}
+/* メインビジュアル (写真) */
+.hero-visual {
+    width: 100%; /* 幅を100%にする */
+    height: 50vh; /* 高さを画面の高さの50%に設定 */
+    overflow: hidden; /* はみ出した画像を隠す */
+    background-color: #dddddd; /* 画像が読み込まれるまでの背景色 */
+}
+
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像の比率を保ったままエリア全体を覆う */
+    object-position: center; /* 画像の中央を表示 */
+    display: block; /* 画像下の余分な隙間をなくす */
+}
+
+/* コンテンツセクション */
+.content-section {
+    padding: 40px 10px; /* 上下の余白をさらに広めに */
+    max-width: 900px;
+    margin: 0 auto;
+    /* セクション間の区切り線は一旦削除（デザインによる） */
+    /* border-bottom: 1px solid #444; */
+}
+
+.content-section h2 {
+    font-size: 2.2em; /* 見出しを大きくして存在感を出す */
+    margin-bottom: 1px; /* 見出しと本文の間隔を広げる */
+    color: #977005; /* ボディー文字 */
+    font-weight: 700; /* 太字 */
+    text-align: center; /* 見出しを中央揃えにする場合 */
+    padding-bottom: 5px;
+    /* border-bottom: 1px solid #555; */ /* 見出しの下線は一旦削除 */
+}
+
+/* フッター既存のスタイル */
+/* 全体の h3 を中央揃えにする */
+h3 {
+  text-align: center;
+}
+
+/* about.html の本文内 h3 を左寄せにする */
+.about-page h3 {
+  text-align: left;
+}
+
+.content-section p {
+    font-size: 1em; /* 本文のフォントサイズ */
+    line-height: 1.5; /* 本文の行間をさらに読みやすく */
+    color: #000000; /* 本文の色を少し調整 */
+}
+
+
+/* フッター2*/
+footer {
+    padding: 10px; /* フッターの上下左右の余白 */
+    text-align: center; /* フッター内の要素を中央揃えにする場合 */
+    font-size: 0.9em; /* フッター全体のフォントサイズ */
+    color: #000000; /* フッターの文字色 */
+    padding: 5px 5px;
+    font-family: "MS Pゴシック" ;
+    margin-top: 1px;
+    border-top: 1px solid #977005;
+  }
+  
+  footer p:last-child {
+    margin-top: 10px; /* コピーライト表示の上側の余白 */
+    font-size: 0.8em; /* コピーライトのフォントサイズを少し小さく */
+  }
+
+  .footer-home-button {
+    margin-top: 30px; /* ← ここを大きくして下に下げる */
+    text-align: center;
+  }
+
+  .home-button {
+    display: inline-block;
+    padding: 8px 20px;
+    color: #353535;
+    border: 2px solid #5f5f5f; /* 枠線を追加 */
+    background-color: transparent; /* 背景透明に */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #5f5f5f;
+    color: #fff; /* ホバー時に文字色を白に */
+  }
+ 
+
+ /* メインビジュアル (フェードイン・アウト) */
+.hero-visual {
+    width: 100%;
+    height: 480px; /* 固定高さ */
+    overflow: hidden;
+    position: relative; /* ★ 子要素の absolute 配置の基準にする */
+    background-color: #ffffff; /* 画像が読み込まれるまでの背景 */
+}
+
+/* ★ フェード用画像スタイル */
+.fade-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ← 中央基準にするキモ */
+  height: 100%;     /* 高さは親に合わせる */
+  width: auto;      /* 幅は自動調整（比率維持） */
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  animation-name: fadeEffect;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* ★ 各画像にアニメーション開始遅延を設定 */
+.fade-image:nth-of-type(1) {
+    animation-delay: 0s; /* 1枚目は遅延なし */
+}
+.fade-image:nth-of-type(2) {
+    animation-delay: 5s; /* 2枚目は5秒後に開始 (15秒サイクルの1/3) */
+}
+.fade-image:nth-of-type(3) {
+    animation-delay: 10s; /* 3枚目は10秒後に開始 (15秒サイクルの2/3) */
+}
+
+
+/* ★ フェード用アニメーション定義 */
+@keyframes fadeEffect {
+    0% { opacity: 0; }    /* アニメーション開始時 (透明) */
+    10% { opacity: 1; }   /* 10%地点でフェードイン完了 (不透明) */
+                           /* (15秒の10% = 1.5秒かけてフェードイン) */
+    28% { opacity: 1; }   /* 28%地点まで表示を維持 */
+                           /* (表示時間は 28% - 10% = 18%。 15秒の18% = 約2.7秒) */
+    38% { opacity: 0; }   /* 38%地点でフェードアウト完了 (透明) */
+                           /* (15秒の10% = 1.5秒かけてフェードアウト) */
+    100% { opacity: 0; }  /* 残りの時間は透明のまま */
+}
+
+/* 横並び画像リンクのコンテナ ショッピングサイト*/
+.two-image-links {
+    display: flex;            /* ★ 中の要素(aタグ)を横並びにする */
+    justify-content: center;  /* center: 中央に寄せる */
+    align-items: center;      /* 画像の高さが違う場合に中央で揃える */
+    gap: 20px;                /* 画像間の最小の隙間を指定 (任意) */
+    margin-top: 30px;         /* 上の要素との間隔 (任意) */
+}
+
+/* 画像リンクアイテム (aタグ自体) のスタイル (任意) */
+.image-link-item {
+     /* 必要であれば幅などを指定 */
+     /* 例: width: 48%; (もし左右いっぱいに広げたい場合、gapと合わせて調整) */
+     display: block; /* レイアウト調整しやすくするため */
+}
+
+/* ショップバナー横並びリンク画像自体のスタイル */
+.link-image {
+    display: block;   /* 画像下の余分な隙間を防ぐ & margin auto等で中央揃えしやすく */
+    max-width: 100%;  /* コンテナ(aタグ)の幅を超えないようにする */
+    height: auto;     /* 幅に合わせて高さを自動調整 */
+    border: none;     /* リンク画像の枠線を消す */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* 軽い影をつける (任意) */
+    transition: all 0.3s ease; /* ホバー効果を滑らかに */
+}
+
+/* 画像リンクにマウスが乗った時の効果 (任意) */
+.image-link-item:hover .link-image {
+    opacity: 0.8; /* 少し透明にする */
+    transform: scale(1.03); /* 少し拡大する */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 影を少し濃くする */
+}
+
+/* 3連画像リンクのコンテナ */
+.three-links-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上端揃え (キャプション等がある場合) / center (画像だけなら中央揃え) */
+    flex-wrap: nowrap; /* 折り返しを禁止 */
+    gap: 2px; /* アイテム間の最小の隙間 */
+    margin-top: 30px;
+    padding: 10px 0; /* 上下の内側余白 */
+    overflow-x: hidden; /* 横スクロールを非表示にする */
+  }
+  
+  /* 各リンクアイテム (aタグ) */
+  .link-item {
+    display: block; /* or inline-block */
+    text-decoration: none; /* リンクの下線を消す */
+    color: inherit; /* 親要素の色を継承 (キャプション用) */
+    text-align: center; /* キャプションを中央揃えにする場合 */
+    flex: 1 1 auto; /* flex-grow: 1, flex-shrink: 1, flex-basis: auto (縮小を許可) */
+    min-width: 80px; /* これ以上縮小しない最小幅 (必要に応じて調整) */
+  }
+  
+  /* リンク画像自体のスタイル */
+  .link-item .link-image { /* セレクタを少し具体的に */
+    display: block;
+    width: 80%; /* 親要素(aタグ)の幅の80% */
+    max-width: 80%;
+    height: auto;
+    border: none;
+    margin-bottom: 10px; /* 画像とキャプションの間隔 (キャプションがある場合) */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-left: auto;  /* ← 左側のマージンをautoに設定 */
+    margin-right: auto; /* ← 右側のマージンをautoに設定 */
+  }
+  
+  /* ホバー効果 */
+  .link-item:hover .link-image {
+    opacity: 0.8;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+/* キャプションのスタイル (もし追加した場合) */
+.link-item p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+    color: #ccc; /* 文字色 */
+}
+
+/* --- レスポンシブ対応 (画面が狭い場合) --- */
+@media (max-width: 768px) { /* 768px以下の画面幅の場合 */
+    .three-links-container {
+        flex-direction: row; /* 縦積みから横並びに戻す */
+        align-items: flex-start; /* 必要に応じて調整 */
+        flex-wrap: nowrap; /* 折り返しを禁止 */
+        gap: 10px; /* 横の隙間を調整 (狭い画面では小さく) */
+        overflow-x: hidden; /* 横スクロールを非表示にする */
+    }
+
+    .link-item {
+        flex: 1 1 auto; /* flex-grow: 1, flex-shrink: 1, flex-basis: auto (縮小を許可) */
+        min-width: 60px; /* 狭い画面での最小幅 (必要に応じて調整) */
+    }
+}
+
+.six-image-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* 常に3列 */
+    grid-template-rows: repeat(2, auto); /* 常に2行 */
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center; /* 水平方向中央揃え */
+    align-items: start; /* 垂直方向上端揃え */
+  }
+  
+  .image-item {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-item:hover {
+    opacity: 0.8;
+  }
+  
+  .image-item img {
+    max-width: 250px; /* ← 画像の最大幅 */
+    height: auto;
+    margin-bottom: 5px;
+    pointer-events: none;
+  }
+  
+  .image-item p {
+    font-size: 0.9em;
+    color: #000000;
+    margin-top: 0;
+    pointer-events: none;
+  }
+  
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .six-image-links {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px; /* ← 狭い画面でも調整 */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .six-image-links {
+      grid-template-columns: 1fr;
+      gap: 5px; /* ← さらに狭い画面ではさらに小さく (例) */
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-visual {
+      height: 40vh;
+    }
+  }
+ 
+  /* aboutテキストと画像を横並びに */
+.text-image-box {
+  display: flex;
+  align-items: flex-start; /* 上端を揃える */
+  gap: 20px; /* テキストと画像の間隔 */
+  margin-bottom: 40px; /* 各ブロックの間隔 */
+}
+
+/* テキスト部分 */
+.text-content {
+  flex: 2;
+}
+
+/* 画像部分 */
+.image-content img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px; /* 角丸（任意） */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 軽い影（任意） */
+}
+
+/* スマホなど画面が狭いとき */
+@media (max-width: 768px) {
+  .text-image-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-content img {
+    max-width: 100%;
+  }
+}
+
+.text-content h3 {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  gap: 1em; /* 文字と線の間隔 */
+}
+
+.text-content h3::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #977005; /* 横線の色 */
+}
+
+/* company profile */
+.company-table {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.company-table th, .company-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+.company-table th {
+  background-color: #f7f7f7;
+  width: 30%;
+}
+
+.company-table th,
+.company-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-family: 'Noto Serif JP', serif;  /* フォントを共通化 */
+  font-size: 1em;                        /* 文字サイズを統一 */
+  color: #2c2c2c;                        /* 文字色を統一 */
+  font-weight: 600;                      /* 通常の太さに */
+}
+
+/* google map */
+.map-container iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 450px;
+  border: none;
+}
+.map-container {
+  max-width: 700px;      /* 地図の最大幅 */
+  margin: 0 auto;        /* 中央寄せ */
+  padding: 20px 0;       /* 上下の余白（任意） */
+}
+
+.map-container iframe {
+  width: 100%;           /* ラップdivに合わせる */
+  height: 400px;         /* 少し小さめの高さ */
+  border: none;
+  border-radius: 3px;    /* 角丸（任意） */
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1); /* 軽い影（任意） */
+}
+
+
+/* 商品のご案内 */
+.p-styled {
+  text-align: center;
+  font-size: 1.5em;
+  color: #000000;
+  font-weight: bold;
+  border: 2px solid #d1d1d1;
+  padding: 5px;
+  margin-top: 50px;
+  margin-bottom: 0.3px; /* 下のスペースだけ小さく */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 855px;
+  border-radius: 1px;
+  background-color: #ffffff;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;          /* 折り返し可 */
+  justify-content: center;  /* 中央寄せ */
+  gap: 20px;                /* 商品間の間隔 */
+  margin: 22px auto;
+  max-width: 1000px;
+}
+
+.product-item {
+  flex: 0 0 calc(33.333% - 20px); /* 横幅を3等分からgap分引く */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.section-title {
+  font-size: 1.5em;
+  margin-top: 2em;
+  border-bottom: 2px solid #977005;
+  padding-bottom: 0.3em;
+}
+@media (max-width: 768px) {
+  .product-list {
+    flex-direction: row;         /* 横方向に戻す */
+    justify-content: center;     /* 中央揃え */
+  }
+
+  .product-item {
+    flex: 0 0 calc(50% - 20px);  /* 2列表示に調整 */
+  }
+}
+
+/* スマホサイズ（最大幅768pxなど）に対応させるスタイルを末尾に追加 */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  header, footer {
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+/* 既存のwidth: 980px;のような固定幅指定は、レスポンシブの妨げになるため、必要に応じて以下のように調整します */
+.container {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+}

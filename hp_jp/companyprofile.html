@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>会社概要-京都茶乃蔵</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="company-profile-page">
+
+  <!-- ヘッダー読み込み -->
+  <div id="headerContainer"></div>
+
+  <main>
+    <section class="content-section">
+      <h2>会社概要</h2>
+
+      <table class="company-table">
+        <tr><th>法人番号</th><td>2130001011378<br> 適格請求書発行事業者：T2130001011378</td></tr>
+        <tr><th>会社名</th><td>京都茶の蔵株式会社</td></tr>
+        <tr><th>設立</th><td>昭和54年4月5日：株式会社設立<br>
+            令和5年 1月1日 ：京都茶の蔵株式会社（社名変更）</td></tr>
+        <tr><th>資本金</th><td>9827万円</td></tr>
+        <tr><th>代表者</th><td>取締役社長&nbsp;中島 孝延</td></tr>
+        <tr><th>所在地</th><td>〒601-8139<br>京都市南区上鳥羽南岩ノ本町69番地</td></tr>
+        <tr><th>TEL</th><td>075-661-1691<br>
+          お問合せ時間：平日・午前9時～午後5時30分</td></tr>
+        <tr><th>FAX</th><td>075-681-3288</td></tr>
+        <tr><th>本社営業日</th><td>平日：午前9時～午後5時30分<br>
+            休日：土曜日・日曜日・祝日・お盆・年末年始<br>※臨時休業日あり<br>
+            ※本社でもお茶の販売をしております。</td></tr>
+        <tr><th>東京営業所</th><td>〒103-0028<br>東京都中央区八重洲1-8-17　新槇町ビル6階<br>
+            TEL：03-6225-2734<br>
+            FAX：03-5542-1694</td></tr>
+        <tr><th>事業内容</th><td>・茶及び茶類全般の販売<br>
+            ・茶道具の販売<br>
+            ・上記に付帯関連する一切の販売業務</td></tr>
+      </table>
+    </section>
+  </main>
+
+  <h3>本社へのアクセスマップ</h3>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.9325590415647!2d135.74177631626003!3d34.958298980369165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf157cb45a43710f5!2z77yI5qCq77yJ5LqV5YWt5ZyS!5e0!3m2!1sja!2sjp!4v1535510448837"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="three-links-container">
+     <a href="https://www.instagram.com/kyoto_chanokura/" target="_blank" class="link-item">
+         <img src="images/sns_instagram.jpg" alt="Instagram" class="link-image">
+         </a>
+     <a href="https://x.com/kyoto_chanokura" target="_blank" class="link-item">
+         <img src="images/sns_xbana.png" alt="エックス" class="link-image">
+         </a>
+     <a href="https://lin.ee/DvsLitz" target="_blank" class="link-item">
+         <img src="images/sns_line.gif" alt="ライン" class="link-image">
+         </a>
+ </div>
+</section>
+
+    <!-- フッターを読み込む場所に設置 -->
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ヘッダー読み込み
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('headerContainer').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('ヘッダーの読み込みに失敗しました:', error);
+    });
+
+  // フッター読み込み
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('フッターの読み込みに失敗しました:', error);
+    });
+});
+</script>
+
+</body>
+</html>
