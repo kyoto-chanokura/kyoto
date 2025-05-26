@@ -542,7 +542,6 @@ footer {
   box-shadow: 0 2px 2px rgba(0,0,0,0.1); /* 軽い影（任意） */
 }
 
-
 /* 商品のご案内 */
 .p-styled {
   text-align: center;
@@ -641,9 +640,48 @@ footer {
     white-space: nowrap;
   }
 }
+
 /* 既存のwidth: 980px;のような固定幅指定は、レスポンシブの妨げになるため、必要に応じて以下のように調整します */
 .container {
   max-width: 980px;
   width: 100%;
   margin: 0 auto;
+}
+
+/* SNS_PC表示用のスタイル */
+.three-links-container {
+  display: flex; /* 要素を横並びにする */
+  justify-content: space-between; /* 要素間のスペースを均等に配置 */
+  align-items: center; /* 要素を中央揃えにする */
+  gap: 15px; /* 要素間の隙間を設定 */
+}
+
+.link-item {
+  flex: 1; /* 3つの要素が均等に並ぶように幅を設定 */
+  text-align: center; /* 画像を中央に配置 */
+}
+
+.link-image {
+  width: 100%; /* 親要素の幅に合わせて画像サイズを調整 */
+  height: auto; /* 高さを自動調整して画像の比率を維持 */
+  display: block; /* 画像下の不要な余白をなくす */
+}
+
+/* スマートフォン表示用のスタイル (例: 画面幅が768px以下の場合) */
+@media (max-width: 768px) {
+  .three-links-container {
+    flex-direction: column; /* 要素を縦並びにする */
+    align-items: center; /* 要素を中央揃えにする */
+    object-fit: contain;
+    max-width: 100%;
+  }
+
+  .link-item {
+    width: 80%; /* スマホ表示時の幅を調整 (お好みで変更してください) */
+    margin: 0 auto; /* 下にマージンを追加して間隔を設ける */
+  }
+
+  .link-item:last-child {
+    margin-top: 15px; /* 最後の要素のマージンは不要 */
+  }
 }
