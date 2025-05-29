@@ -125,13 +125,29 @@ header nav ul li:first-child {
   gap: 1em;            /* 項目と項目の間の隙間を空ける (例: 1文字分のスペース) */
                        /* gapを使わない場合は、liに margin-left や margin-right を指定します */
    justify-content: space-evenly; /* ← これで中央に均等配置 (推奨) */
-                      }
+  }
 
 /* 必要であれば、li 自体のスタイルも指定できます */
 .my-horizontal-list li {
 background-color: #ffffff;
   /* border: 1px solid #ccc; */
   /* padding: 5px 10px; */
+}
+
+/* ヘッダーの文字をスマホサイズでも改行させない */
+@media (max-width: 768px) {
+  .my-horizontal-list {
+    flex-direction: row;          /* 横並びを維持 */
+    flex-wrap: nowrap;            /* 折り返さない（改行防止） */
+    overflow-x: auto;             /* はみ出した場合に横スクロール可能にする（任意） */
+    gap: 0.5em;                   /* 隙間を少し狭くする */
+  }
+
+  .my-horizontal-list li {
+    font-size: 0.75em;            /* フォントサイズを小さくする（必要に応じて調整） */
+    white-space: nowrap;          /* テキストの改行を防止 */
+    margin: 0 0.3em;              /* 少しだけ余白 */
+  }
 }
 
 header div {
@@ -665,6 +681,7 @@ footer {
   width: 100%; /* 親要素の幅に合わせて画像サイズを調整 */
   height: auto; /* 高さを自動調整して画像の比率を維持 */
   display: block; /* 画像下の不要な余白をなくす */
+  border-radius: 3px; /* SNSとECバナーの角を丸く */
 }
 
 /* スマートフォン表示用のスタイル (例: 画面幅が768px以下の場合) */
